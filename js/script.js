@@ -6,6 +6,7 @@
 
 // 4. Stampo le informazioni in pagina.
 
+// 1.
 const ourTeam = [
   {
     name: 'Wayne Barnett',
@@ -39,18 +40,31 @@ const ourTeam = [
   },
 ];
 
+// dichiaro variabili
+const row = document.querySelector('.row');
+const bodyElement = document.body;
 
+bodyElement.classList.add('bg-light')
 
-for(let member of ourTeam) {
+// 2.
+for (let member of ourTeam) {
+  // 3.
   console.log(member);
   console.log(member.name)
   console.log(member.job)
   console.log(member.photo)
+  
+  // creo l'elemento per stampare in pagina
+  const card = document.createElement('div');
+  card.classList.add('col-4','text-center','my-3')
+  card.innerHTML = `
+      <img src="${member.photo}" alt="${member.name}'s Photo" class="w-100">
+      <div class=" bg-white ">
+        <h2>${member.name}</h2>
+        <p>${member.job}</p>
+      </div>
+  `;
+  // 4.
+  row.appendChild(card);
 }
 
-const ul = document.querySelector('ul');
-
-// `<li>${pizza.nome} € ${pizza.prezzo}
-//   <br>
-//   ingredienti: ${pizza.ingredienti.join(" - ")}
-//   </li>`
